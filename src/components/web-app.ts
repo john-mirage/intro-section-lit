@@ -30,6 +30,10 @@ export class WebApp extends LitElement {
     this._overlayIsVisible = false;
   }
 
+  showOverlay() {
+    this._overlayIsVisible = true;
+  }
+
   connectedCallback() {
     super.connectedCallback();
     this.addEventListener("open-sidebar", this.openSidebar);
@@ -45,11 +49,11 @@ export class WebApp extends LitElement {
   render() {
     return html`
       <web-bar>
-        <web-navigation slot="navigation"></web-navigation>
+        <web-navigation parent="bar" slot="navigation"></web-navigation>
       </web-bar>
       <web-hero></web-hero>
       <web-sidebar ?is-open=${this._sidebarIsOpen}>
-        <web-navigation slot="navigation"></web-navigation>
+        <web-navigation parent="sidebar" slot="navigation"></web-navigation>
       </web-sidebar>
       <web-overlay ?is-visible=${this._overlayIsVisible}></web-overlay>
     `;

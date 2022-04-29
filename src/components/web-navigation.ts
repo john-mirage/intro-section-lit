@@ -1,8 +1,23 @@
 import {html, css, LitElement} from 'lit';
-import {customElement} from 'lit/decorators.js';
+import {customElement, property, query} from 'lit/decorators.js';
 
 @customElement('web-navigation')
 export class WebNavigation extends LitElement {
+  @property()
+  parent: string;
+
+  @query(".dropdown--feature")
+  featureDropdown: HTMLDetailsElement;
+
+  @query(".dropdown--company")
+  companyDropdown: HTMLDetailsElement;
+
+  constructor() {
+    super();
+    this.closeFeatureDropdown = this.closeFeatureDropdown.bind(this);
+    this.closeCompanyDropdown = this.closeCompanyDropdown.bind(this);
+  }
+
   static styles = css`
     :host {
       --color-almost-white: hsl(0, 0%, 98%);
@@ -111,6 +126,7 @@ export class WebNavigation extends LitElement {
 
       .dropdown__body {
         position: absolute;
+        z-index: 60;
         bottom: -20px;
         transform: translateY(100%);
         width: 156px;
@@ -149,10 +165,44 @@ export class WebNavigation extends LitElement {
     }
   `;
 
+  closeFeatureDropdown(event) {
+    const clickIsInsideDropdown = this.featureDropdown.contains(event.composedPath()[0]);
+    if (!clickIsInsideDropdown) {
+      this.featureDropdown.removeAttribute("open");
+    }
+  }
+
+  closeCompanyDropdown(event) {
+    const clickIsInsideDropdown = this.companyDropdown.contains(event.composedPath()[0]);
+    if (!clickIsInsideDropdown) {
+      this.companyDropdown.removeAttribute("open");
+    }
+  }
+
+  handleFeatureDropdown() {
+    if (this.parent === "bar") {
+      if (this.featureDropdown.open) {
+        document.addEventListener("click", this.closeFeatureDropdown);
+      } else  {
+        document.removeEventListener("click", this.closeFeatureDropdown);
+      }
+    }
+  }
+
+  handleCompanyDropdown() {
+    if (this.parent === "bar") {
+      if (this.companyDropdown.open) {
+        document.addEventListener("click", this.closeCompanyDropdown);
+      } else {
+        document.removeEventListener("click", this.closeCompanyDropdown);
+      }
+    }
+  }
+
   render() {
     return html`
       <nav class="navigation">
-        <details class="dropdown">
+        <details class="dropdown dropdown--feature" @toggle=${this.handleFeatureDropdown}>
           <summary class="dropdown__header">
             <span class="dropdown__name">Features</span>
             <svg class="dropdown__icon" width="10" height="6" viewBox="0 0 10 6"
@@ -187,7 +237,7 @@ export class WebNavigation extends LitElement {
             </a>
           </div>
         </details>
-        <details class="dropdown">
+        <details class="dropdown dropdown--company" @toggle=${this.handleCompanyDropdown}>
           <summary class="dropdown__header">
             <span class="dropdown__name">Company</span>
             <svg class="dropdown__icon" width="10" height="6" viewBox="0 0 10 6" xmlns="http://www.w3.org/2000/svg">
