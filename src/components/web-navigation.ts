@@ -70,6 +70,15 @@ export class WebNavigation extends LitElement {
       box-sizing: border-box;
       width: 10px;
       height: auto;
+      color: var(--color-medium-gray);
+    }
+
+    .dropdown__header:hover > .dropdown__name {
+      color: var(--color-almost-black);
+    }
+
+    .dropdown__header:hover > .dropdown__icon {
+      color: var(--color-almost-black);
     }
 
     .dropdown[open] .dropdown__icon {
@@ -102,6 +111,10 @@ export class WebNavigation extends LitElement {
       font-weight: 500;
       color: var(--color-medium-gray);
       vertical-align: middle;
+    }
+    
+    .link:hover > .link__text {
+      color: var(--color-almost-black);
     }
 
     @media screen and (min-width: 992px) {
@@ -207,7 +220,7 @@ export class WebNavigation extends LitElement {
             <span class="dropdown__name">Features</span>
             <svg class="dropdown__icon" width="10" height="6" viewBox="0 0 10 6"
                xmlns="http://www.w3.org/2000/svg">
-              <path stroke="#686868" stroke-width="1.5" fill="none" d="m1 1 4 4 4-4"/>
+              <path stroke="currentColor" stroke-width="1.5" fill="none" d="m1 1 4 4 4-4"/>
             </svg>
           </summary>
           <div class="dropdown__body dropdown__body--from-right">
@@ -241,7 +254,7 @@ export class WebNavigation extends LitElement {
           <summary class="dropdown__header">
             <span class="dropdown__name">Company</span>
             <svg class="dropdown__icon" width="10" height="6" viewBox="0 0 10 6" xmlns="http://www.w3.org/2000/svg">
-              <path stroke="#686868" stroke-width="1.5" fill="none" d="m1 1 4 4 4-4"/>
+              <path stroke="currentColor" stroke-width="1.5" fill="none" d="m1 1 4 4 4-4"/>
             </svg>
           </summary>
           <div class="dropdown__body dropdown__body--from-left">

@@ -30,10 +30,6 @@ export class WebApp extends LitElement {
     this._overlayIsVisible = false;
   }
 
-  showOverlay() {
-    this._overlayIsVisible = true;
-  }
-
   connectedCallback() {
     super.connectedCallback();
     this.addEventListener("open-sidebar", this.openSidebar);
