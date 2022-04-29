@@ -29,6 +29,12 @@ export class WebOverlay extends LitElement {
     .overlay--visible {
       display: block;
     }
+
+    @media screen and (min-width: 992px) {
+      .overlay {
+        display: none;
+      }
+    }
   `;
 
   closeSidebar() {

@@ -218,8 +218,7 @@ export class WebNavigation extends LitElement {
         <details class="dropdown dropdown--feature" @toggle=${this.handleFeatureDropdown}>
           <summary class="dropdown__header">
             <span class="dropdown__name">Features</span>
-            <svg class="dropdown__icon" width="10" height="6" viewBox="0 0 10 6"
-               xmlns="http://www.w3.org/2000/svg">
+            <svg class="dropdown__icon" width="10" height="6" viewBox="0 0 10 6" xmlns="http://www.w3.org/2000/svg">
               <path stroke="currentColor" stroke-width="1.5" fill="none" d="m1 1 4 4 4-4"/>
             </svg>
           </summary>
