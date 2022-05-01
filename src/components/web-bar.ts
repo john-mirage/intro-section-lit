@@ -1,5 +1,7 @@
 import {html, css, LitElement} from 'lit';
 import {customElement} from 'lit/decorators.js';
+import logo from '../images/logo.svg';
+import menuIcon from '../images/icon-menu.svg';
 
 @customElement('web-bar')
 export class WebBar extends LitElement {
@@ -126,7 +128,7 @@ export class WebBar extends LitElement {
     return html`
       <header class="bar">
         <div class="bar__section bar__section--left">
-          <img class="bar__logo" src="/src/images/logo.svg" alt="brand logo">
+          <img class="bar__logo" src=${logo} alt="brand logo">
           <div class="bar__navigation">
             <slot name="navigation"></slot>
           </div>
@@ -135,7 +137,7 @@ export class WebBar extends LitElement {
             <button class="bar__text-button">Login</button>
             <button class="bar__text-button bar__text-button--outlined">Register</button>
             <button class="bar__icon-button" @click="${this.openSidebar}">
-              <img class="bar__icon" src="/src/images/icon-menu.svg" alt="menu icon">
+              <img class="bar__icon" src=${menuIcon} alt="menu icon">
             </button>
           </div>
       </header>

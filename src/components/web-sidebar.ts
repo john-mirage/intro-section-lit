@@ -1,6 +1,7 @@
 import {html, css, LitElement} from 'lit';
 import {customElement, property} from 'lit/decorators.js';
 import {classMap} from 'lit/directives/class-map.js';
+import closeMenuIcon from '../images/icon-close-menu.svg';
 
 @customElement('web-sidebar')
 export class WebSidebar extends LitElement {
@@ -72,7 +73,7 @@ export class WebSidebar extends LitElement {
     return html`
       <aside class=${classMap(classes)}>
         <button class="sidebar__button" @click=${this.closeSidebar}>
-          <img class="sidebar__icon" src="/src/images/icon-close-menu.svg" alt="close icon">
+          <img class="sidebar__icon" src=${closeMenuIcon} alt="close icon">
         </button>
         <slot name="navigation"></slot>
       </aside>

@@ -2,18 +2,10 @@
   "name": "intro-section-with-dropdown",
   "private": true,
   "version": "0.0.0",
-  "main": "dist/web-app.es.js",
-  "exports": {
-    ".": "./dist/web-app.es.js"
-  },
-  "types": "types/web-app.d.ts",
-  "files": [
-    "dist",
-    "types"
-  ],
   "scripts": {
     "dev": "vite",
-    "build": "vite build"
+    "build": "vite build",
+    "preview": "vite preview"
   },
   "dependencies": {
     "lit": "^2.0.2"

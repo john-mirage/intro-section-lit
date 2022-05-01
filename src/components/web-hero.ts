@@ -1,5 +1,11 @@
 import {html, css, LitElement} from 'lit';
 import {customElement} from 'lit/decorators.js';
+import heroDesktopImg from '../images/image-hero-desktop.png';
+import heroMobileImg from '../images/image-hero-mobile.png';
+import databizLogo from '../images/client-databiz.svg';
+import audiophileLogo from '../images/client-audiophile.svg';
+import meetLogo from '../images/client-meet.svg';
+import makerLogo from '../images/client-maker.svg';
 
 @customElement('web-hero')
 export class WebHero extends LitElement {
@@ -208,18 +214,18 @@ export class WebHero extends LitElement {
     return html`
       <div class="hero">
         <picture class="hero__picture">
-          <source srcset="/src/images/image-hero-desktop.png" media="(min-width: 992px)">
-          <img class="hero__image" src="/src/images/image-hero-mobile.png" alt="Hero image">
+          <source srcset=${heroDesktopImg} media="(min-width: 992px)">
+          <img class="hero__image" src=${heroMobileImg} alt="Hero image">
         </picture>
         <div class="hero__cta">
           <h1 class="hero__title">Make remote work</h1>
           <p class="hero__subtitle">Get your team in sync, no matter your location. Streamline processes, create team rituals, and watch productivity soar.</p>
           <button class="hero__button">Learn more</button>
           <div class="hero__grid">
-            <img class="hero__logo" src="/src/images/client-databiz.svg" alt="databiz logo">
-            <img class="hero__logo" src="/src/images/client-audiophile.svg" alt="audiophile logo">
-            <img class="hero__logo" src="/src/images/client-meet.svg" alt="meet logo">
-            <img class="hero__logo" src="/src/images/client-maker.svg" alt="maker logo">
+            <img class="hero__logo" src=${databizLogo} alt="databiz logo">
+            <img class="hero__logo" src=${audiophileLogo} alt="audiophile logo">
+            <img class="hero__logo" src=${meetLogo} alt="meet logo">
+            <img class="hero__logo" src=${makerLogo} alt="maker logo">
           </div>
         </div>
       </div>
